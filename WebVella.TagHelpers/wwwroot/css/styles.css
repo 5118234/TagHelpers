@@ -50,9 +50,7 @@
 	overflow: hidden;
 }
 
-.wv-field .ck-editor__editable {
-    min-height: 200px;
-}
+
 /*#endregion*/
 
 /*#region << wv-alert >>*/
@@ -113,7 +111,7 @@
 	.alert-icon .icon {
 		flex: 0 0 40px;
 		text-align: center;
-		font-size: 1.5rem;
+		font-size: 1.25rem;
 	}
 
 .wv-alert .content {
@@ -127,6 +125,9 @@
 		font-size: 1rem;
 	}
 
+.wv-alert ul {
+	padding-left:1rem;
+}
 
 .alert-light {
 	background: linear-gradient(115deg,rgba(236, 239, 241,1),rgba(236, 239, 241,0.05));
@@ -188,13 +189,13 @@
 	height: 1em;
 	max-height: 100%;
 	line-height: inherit;
-	vertical-align: text-bottom;
+	vertical-align: middle;
 	position: relative;
 }
 
 	.wv-icon svg {
 		position: absolute;
-		top: -0.085rem;
+		top: 0;
 		left: 0;
 		width: 100%;
 		height: 100%;
@@ -611,12 +612,30 @@
 
 /*#region <<wv-field-html>>*/
 
+/*Solves the problem of not showing in modals*/
+.ck.ck-balloon-panel {
+	z-index:2000 !important;
+}
+
+.ck .ck-figure-title {
+	padding: 0 1rem 0.5rem 1rem;
+	font-size: 10pt;
+	text-align: center;
+}
+
+.ck .ck-figure-caption {
+	padding: 0.5rem 1rem 0.25in 1rem;
+	font-size: 8pt;
+	text-align: center;
+	color: #333;
+}
+
 .wv-field .ck.ck-editor {
 	width: 100% !important;
 }
 
-.wv-field-html .cke_editable {
-	min-height: 150px;
+.wv-field-html .cke_editable:not(.ck-editor__nested-editable) {
+	min-height: 200px;
 	max-height: 300px;
 	/*overflow-y: auto;*/
 }
@@ -637,10 +656,14 @@
 
 .wv-field-html figure.image-style-align-right {
 	float: right;
+	padding-left:1rem;
+	padding-bottom:1rem;
 }
 
 .wv-field-html figure.image-style-align-left {
-	float: right;
+	float: left;
+	padding-right:1rem;
+	padding-bottom:1rem;
 }
 
 /*#endregion*/
